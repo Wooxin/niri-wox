@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# 获取当前主题
+get_theme() {
+    # 检查当前设置的waybar主题
+    THEMEIS=$(readlink -f ~/.config/waybar/style.css | xargs basename)
+}
+
+# 参数处理
+if [[ "$1" == "setbg" ]]; then
+    set_current_background
+fi
+
+# 显示工具提示
+TOOLTIP='快捷键\n'\
+'超级键 + Q = 启动 Kitty 终端\n'\
+'超级键 + C = 关闭窗口\n'\
+'超级键 + L = 锁屏\n'\
+'超级键 + M = 注销菜单\n'\
+'超级键 + E = 文件管理器\n'\
+'超级键 + V = 切换浮动窗口\n'\
+'超级键 + O = 应用程序启动器\n'\
+'超级键 + S = 截图'
+
+echo '{"text": "提示", "tooltip": "'$TOOLTIP'"}'
