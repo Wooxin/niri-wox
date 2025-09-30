@@ -1,2 +1,8 @@
 # niri-wox
-An automated script or demonstration for niri
+
+## install
+```bash
+cd niri-wox
+chmod +x wox-Niri.sh
+./wox-Niri.sh
+```
