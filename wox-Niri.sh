@@ -2,7 +2,7 @@
 
 # --------------------------------------------
 #       author: wox
-#       update: 25/09/28/20:59
+#       update: 25/10/01/02:21
 # --------------------------------------------
 
 clear
@@ -51,15 +51,15 @@ EOF
 }
 
 cpconf() {
-    cp -fr config/* $HOME/.config/
+    cp -fr ./config/* $HOME/.config/
 }
 
 lnsf(){
-   ln -sf config/waybar/conf/config.jsonc $HOME/.config/waybar/config.jsonc
-   ln -sf config/waybar/style/style.css $HOME/.config/waybar/style.css
-   ln -sf config/mako/conf/config-dark $HOME/.config/mako/config
-   ln -sf config/wofi/conf/config $HOME/.config/wofi/config
-   ln -sf config/wofi/style/style-dark.css $HOME/.config/wofi/style.css
+   ln -sf $HOME/.config/waybar/conf/config.jsonc $HOME/.config/waybar/config.jsonc
+   ln -sf $HOME/.config/waybar/style/style.css $HOME/.config/waybar/style.css
+   ln -sf $HOME/.config/mako/conf/config-dark $HOME/.config/mako/config
+   ln -sf $HOME/.config/wofi/conf/config $HOME/.config/wofi/config
+   ln -sf $HOME/.config/wofi/style/style-dark.css $HOME/.config/wofi/style.css
 }
 
 # 读取用户输入
