@@ -18,15 +18,16 @@ EOF
     sudo pacman -S paru
     echo "正在更新系统..."
     sudo pacman -Syu --noconfirm
-    paru -S sddm niri btop kitty swww mako waybar wlogout swaylock-effects swayidle
+    echo "正在安装桌面"
+    paru -S niri btop kitty swww mako waybar wlogout swaylock-effects swayidle pipewire pipewire-alsa pipewire-pulse thunar thunar-volman gvfs xfce4-settings fcitx5 fcitx5-chinese-addons fcitx5-configtool
     cp -fr ./config/* $HOME/.config/
-    systemctl --user enable --now niri
     sudo systemctl enable --now sddm
+    systemctl --user enable --now niri
+    systemctl --user enable --now pipewire pipewire-pulse wireplumber
 }
 
 envniri() {
     sudo cat >> /etc/environment << EOF
-
 # Wayland
 export WAYLAND_DISPLAY=wayland-1
 export XDG_CURRENT_DESKTOP=sway
