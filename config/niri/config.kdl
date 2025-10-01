@@ -104,6 +104,13 @@ hotkey-overlay {
     skip-at-startup
 }
 
+// ----------------------------------------------------------
+//              环境变量
+// ----------------------------------------------------------
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
 // prefer-no-csd
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -137,7 +144,35 @@ window-rule {
     match app-id="fcitx5-config-qt"
     open-floating true
 }
+// blueman
+window-rule {
+    match app-id="blueman"
+    open-floating true
+    max-width 600
+    min-width 600
+    max-height 400
+    min-height 400
+}
+window-rule {
+    match app-id="localsend"
+    open-floating true
+    max-width 600
+    min-width 600
+    max-height 400
+    min-height 400
+}
+window-rule {
+    match app-id="xfce4-settings-manager"
+    open-floating true
+    max-width 600
+    min-width 600
+    max-height 400
+    min-height 400
+}
 
+// ----------------------------------------------------------
+//              绑定设置
+// ----------------------------------------------------------
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Q hotkey-overlay-title="打开: Kitty" { spawn "kitty"; }
@@ -248,12 +283,11 @@ binds {
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
+    // Mod+Shift+F { toggle-windowed-fullscreen; }
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
@@ -261,6 +295,8 @@ binds {
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
+    Mod+Comma  { consume-window-into-column; } // 逗号,
+    Mod+Period { expel-window-from-column; } // 句号.
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }

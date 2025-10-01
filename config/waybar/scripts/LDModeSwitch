@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# 检查当前主题状态
+if readlink -f ~/.config/waybar/style.css | grep -q "style-dark.css"; then
+    # 当前是深色模式，切换到浅色模式
+    SWITCHTO=""
+    MODESTR="Light"
+else
+    # 当前是浅色模式，切换到深色模式
+    SWITCHTO="-dark"
+    MODESTR="Dark"
+fi
+
+# 显示通知
+notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "Switching to $MODESTR Mode"
+
+# 设置 waybar 主题
+ln -sf ~/.config/waybar/style/style$SWITCHTO.css ~/.config/waybar/style.css
+
+# 设置 wofi 主题
+ln -sf ~/.config/wofi/style/style$SWITCHTO.css ~/.config/wofi/style.css
+
+# 设置 mako 主题
+ln -sf ~/.config/mako/conf/config$SWITCHTO ~/.config/mako/config
+
+# 设置 xfce 主题
+xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita$SWITCHTO"
+
+# 设置 GTK 主题
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita$SWITCHTO"
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita$SWITCHTO"
+
+# 更改背景图片
+swww img ~/.config/swww/backgrounds/background$SWITCHTO.jpg --transition-fps 60 --transition-type wipe --transition-duration 2
+
+# 更新 SDDM 图像
+cp -f ~/.config/swww/backgrounds/background$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+
+# 重启 mako
+sleep 1
+pkill mako || true
+mako &
+
+# 重启 waybar
+sleep 2
+pkill waybar || true
+waybar &

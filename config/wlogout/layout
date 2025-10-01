@@ -1,35 +1,35 @@
 {
     "label" : "lock",
     "action" : "swaylock",
-    "text" : "Lock"
+    "text" : "锁屏"
 }
 
 {
     "label" : "hibernate",
     "action" : "systemctl hibernate",
-    "text" : "Hibernate"
+    "text" : "休眠"
 }
 
 {
     "label" : "logout",
     "action" : "niri msg action quit",
-    "text" : "Logout"
+    "text" : "登出"
 }
 
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "Shutdown"
+    "text" : "关机"
 }
 
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspend"
+    "text" : "暂停"
 }
 
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
-    "text" : "Reboot"
+    "text" : "重启"
 }

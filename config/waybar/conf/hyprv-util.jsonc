@@ -10,7 +10,7 @@
 
     "custom/light_dark": {
         "format": "󰐾",
-        "on-click": "~/.config/waybar/scripts/baraction light",
+        "on-click": "~/.config/waybar/scripts/LDModeSwitch light",
         "tooltip": false
     }
 

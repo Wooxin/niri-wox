@@ -11,6 +11,7 @@
         "clock"
     ],
     "modules-center": [
+        "custom/workspaces"
     ],
     "modules-right": [
         "network",
@@ -75,6 +76,14 @@
             "󰂂",
             "󰁹"
         ]
+    },
+    "custom/workspaces": {
+        "exec": "~/.config/waybar/scripts/niri-workspaces.py",
+        "interval": 1,
+        "return-type": "json",
+        "format": " {} ",
+        "on-click": "niri msg action focus-workspace {button}",
+        "tooltip": true
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
