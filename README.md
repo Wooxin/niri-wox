@@ -1,8 +1,3 @@
 # niri-wox
+This is my backup, please do not use it.
 
-## install
-```bash
-cd niri-wox
-chmod +x wox-Niri.sh
-./wox-Niri.sh
-```
